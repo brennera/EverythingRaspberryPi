@@ -1,0 +1,158 @@
+title: Fairplay
+views:
+  - path: home
+    title: Home
+    theme: noctis
+    icon: mdi:home-assistant
+    badges: []
+    cards: []
+  - title: Bedroom
+    path: bedroom
+    icon: mdi:bed
+    theme: vintage
+    type: sidebar
+    badges: []
+    cards: []
+  - title: Living Room
+    path: living-room
+    icon: mdi:sofa
+    theme: vintage
+    badges: []
+    cards: []
+  - title: Anne Office
+    path: office
+    icon: mdi:monitor
+    theme: vintage
+    badges: []
+    cards: []
+  - title: Dave Office
+    path: dave-office
+    icon: mdi:monitor-cellphone
+    badges: []
+    cards: []
+  - title: Kitchen
+    path: kitchen
+    icon: mdi:food-variant
+    theme: vintage
+    badges: []
+    cards:
+      - type: button
+        tap_action:
+          action: toggle
+        entity: switch.tasmota_2
+        name: Tasmota Smart Switch
+      - type: entities
+        entities:
+          - entity: sensor.tasmota_energy_current
+            name: ENERGY Current
+          - entity: sensor.tasmota_energy_power
+            name: ENERGY Power
+          - entity: sensor.tasmota_energy_today
+            name: ENERGY Today
+          - entity: sensor.tasmota_energy_total
+            name: ENERGY Total
+          - entity: sensor.tasmota_energy_totalstarttime
+            name: ENERGY TotalStartTime
+          - entity: sensor.tasmota_energy_voltage
+            name: ENERGY Voltage
+          - entity: sensor.tasmota_energy_yesterday
+            name: ENERGY Yesterday
+        title: Tasmota Smart Switch
+  - title: Webcams
+    path: webcams
+    icon: mdi:webcam
+    theme: vintage
+    badges: []
+    cards:
+      - type: picture-glance
+        image: http://192.168.1.122:81/stream
+        entities: []
+        hold_action:
+          action: url
+          url_path: http://192.168.1.184/capture
+        tap_action:
+          action: url
+          url_path: http://192.168.1.184/capture
+        title: EastCAM
+      - type: picture-glance
+        image: http://192.168.1.108:81/stream
+        entities: []
+        hold_action:
+          action: url
+          url_path: http://192.168.1.184/capture
+        tap_action:
+          action: url
+          url_path: http://192.168.1.184/capture
+        entity: BugCAM
+        title: BugCAM
+      - type: picture-glance
+        title: Click to Capture Still
+        image: http://192.168.1.148:8081
+        entities: []
+        tap_action:
+          action: call-service
+          service: mqtt.publish
+          service_data:
+            topic: outside_picture
+            payload: bedroom
+          target: {}
+        hold_action:
+          action: url
+          url_path: http://192.168.1.148:8765/picture/1/current/
+      - type: picture-glance
+        image: http://192.168.1.147:81/stream
+        entities: []
+        hold_action:
+          action: url
+          url_path: http://192.168.1.184/capture
+        tap_action:
+          action: url
+          url_path: http://192.168.1.184/capture
+        title: Loft RadonCAM
+      - type: picture-glance
+        image: http://192.168.1.126:81/stream
+        entities: []
+        hold_action:
+          action: url
+          url_path: http://192.168.1.184/capture
+        tap_action:
+          action: url
+          url_path: http://192.168.1.184/capture
+        title: Kitchen RadonCAM
+  - title: Test
+    path: test
+    icon: hass:head-lightbulb-outline
+    badges: []
+    cards:
+      - type: entities
+        entities:
+          - entity: sun.sun
+        title: Sun State
+      - type: light
+        entity: light.a70wc_vdevo
+        name: White Virtual Smartbulb
+      - type: light
+        entity: light.yb_a70_rgbw_low_vdevo
+        name: Color Virtual Smartbulb
+        theme: vintage
+      - type: entities
+        entities:
+          - switch.tasmota_2
+        title: Tasmota
+      - type: picture-glance
+        title: Click to Capture Still
+        image: http://192.168.1.208:8081
+        entities:
+          - entity: sun.sun
+          - entity: sensor.test_temperature
+          - entity: light.yb_a70_rgbw_low_vdevo
+        tap_action:
+          action: call-service
+          service: mqtt.publish
+          service_data:
+            topic: take_picture
+            payload: bedroom
+          target: {}
+        hold_action:
+          action: url
+          url_path: http://192.168.1.208/camera/last_insidecam.jpg
