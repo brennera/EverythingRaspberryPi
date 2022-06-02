@@ -49,7 +49,9 @@ sleep(2);}
 ?>
 
 <form method="GET" action=''>
-<font size="3" face="Arial, Helvetica, sans-serif"><strong>Tasmota Switch: &nbsp;&nbsp;&nbsp;</strong></font>
+<!-- ********Choose Tasmota Switch or ESP8266 Based Relay********************* -->
+<!--<font size="3" face="Arial, Helvetica, sans-serif"><strong>Tasmota Switch: &nbsp;&nbsp;&nbsp;</strong></font>-->
+<font size="3" face="Arial, Helvetica, sans-serif"><strong>ESP8266 Based Relay: &nbsp;&nbsp;&nbsp;</strong></font>
 <input type="submit" name="SWITCH"  value="ON" style="font-size:8pt;color:black;background-color:green;border:2px solid #336600;border-radius: 25px;padding:3px">&nbsp;&nbsp;
 <input type="submit" name="SWITCH"  value="OFF" style="font-size:8pt;color:black;background-color:red;border:2px solid #b30000;border-radius: 25px;padding:3px">
 &nbsp;&nbsp;
