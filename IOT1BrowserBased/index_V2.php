@@ -26,11 +26,11 @@ echo date("h:i:s a");
 $Switch=$_GET["SWITCH"];
 //******************************************
 // In the following shell_exec commands, substitute the IP address of your S31 tasmota for 192.168.1.xxx
-if ($Switch=="ON") {shell_exec('wget http://192.168.1.xxx/cm?cmnd=Power%20ON');
+if ($Switch=="ON") {shell_exec('curl http://192.168.1.xxx/cm?cmnd=Power%20ON');
 sleep(2);}
-elseif ($Switch=="OFF") {shell_exec('wget http://192.168.1.xxx/cm?cmnd=Power%20OFF');
+elseif ($Switch=="OFF") {shell_exec('curl http://192.168.1.xxx/cm?cmnd=Power%20OFF');
 sleep(2);}
-elseif ($Switch=="TOGGLE") {shell_exec('wget http://192.168.1.xxx/cm?cmnd=Power%20TOGGLE');
+elseif ($Switch=="TOGGLE") {shell_exec('curl http://192.168.1.xxx/cm?cmnd=Power%20TOGGLE');
 sleep(2);}
 //********************************************
 ?>
