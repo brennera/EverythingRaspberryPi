@@ -1,0 +1,43 @@
+#From "My Raspberry Pi Does Everything!!!" by Anne Brenner 2022
+esphome:
+  name: aht10
+
+esp8266:
+  board: d1_mini
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  password: ""
+
+ota:
+  password: ""
+
+# i2c sensors
+i2c:
+  sda: D2
+  scl: D1
+  scan: True
+
+# Example configuration entry
+sensor:
+  - platform: aht10
+    temperature:
+      name: "Temperature"
+    humidity:
+      name: "Humidity"
+    update_interval: 60s
+
+#*************Change SSID and PASSWORD********************************8
+wifi:
+  ssid: "SSID"
+  password: "PASSWORD"
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Aht10 Fallback Hotspot"
+    password: "5KVVLYJeSWPa"
+
+captive_portal:
