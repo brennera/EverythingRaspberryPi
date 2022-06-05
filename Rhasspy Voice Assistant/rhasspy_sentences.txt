@@ -1,0 +1,39 @@
+[GetTime]
+what time is it
+tell me the time
+what is the time
+whats the time
+time
+
+[GetDate]
+what is the date
+date
+
+[ChangeSwitchState]
+switch_state = (on | off) {state}
+
+turn <switch_state> [the] switch
+turn [the] switch <switch_state>
+switch <switch_state>
+
+[HA_Temperature]
+what is the temperature
+whats the temperature
+temperature
+
+[TakePicture]
+take a picture
+take a snapshot
+snapshot
+picture
+
+[BeamUp]
+Beam me up Scotty
+
+[StarTrek]
+Startrek
+Startrek sayings
+Startrek quotes
+quotes
+quote
+quote of the day
