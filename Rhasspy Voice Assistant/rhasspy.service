@@ -1,0 +1,13 @@
+[Unit]
+Description=Runs rhasspy.py intent handling from Rhasspy
+After=multi-user.target
+
+[Service]
+Type=simple
+User=pi
+ExecStart= sudo /usr/bin/python3 /home/pi/rhasspy.py
+Restart=always
+
+
+[Install]
+WantedBy=multi-user.target
