@@ -1,15 +1,15 @@
 [
     {
-        "id": "2f1e41c5.19c21e",
+        "id": "cbbecd18792563f3",
         "type": "tab",
         "label": "Rhasspy Example",
         "disabled": false,
         "info": ""
     },
     {
-        "id": "1cf9bec4.4449d1",
+        "id": "351db908d9f73185",
         "type": "http request",
-        "z": "2f1e41c5.19c21e",
+        "z": "cbbecd18792563f3",
         "name": "text to speech",
         "method": "POST",
         "ret": "txt",
@@ -27,9 +27,9 @@
         ]
     },
     {
-        "id": "5b2489ca5e05de89",
+        "id": "f2948fd21f5d1106",
         "type": "api-current-state",
-        "z": "2f1e41c5.19c21e",
+        "z": "cbbecd18792563f3",
         "name": "Temperature",
         "server": "d6a6341e2582fde3",
         "version": 3,
@@ -37,7 +37,7 @@
         "halt_if": "",
         "halt_if_type": "str",
         "halt_if_compare": "is",
-        "entity_id": "sensor.temperature_2",
+        "entity_id": "sensor.temperature",
         "state_type": "str",
         "blockInputOverrides": false,
         "outputProperties": [
@@ -60,14 +60,14 @@
         "y": 40,
         "wires": [
             [
-                "94912489856087e8"
+                "923127952db33e74"
             ]
         ]
     },
     {
-        "id": "94912489856087e8",
+        "id": "923127952db33e74",
         "type": "change",
-        "z": "2f1e41c5.19c21e",
+        "z": "cbbecd18792563f3",
         "name": "",
         "rules": [
             {
@@ -87,14 +87,14 @@
         "y": 100,
         "wires": [
             [
-                "85117c35c8e67013"
+                "9b5feb94338f6462"
             ]
         ]
     },
     {
-        "id": "85117c35c8e67013",
+        "id": "9b5feb94338f6462",
         "type": "join",
-        "z": "2f1e41c5.19c21e",
+        "z": "cbbecd18792563f3",
         "name": "",
         "mode": "custom",
         "build": "string",
@@ -115,15 +115,15 @@
         "y": 120,
         "wires": [
             [
-                "1cf9bec4.4449d1",
-                "1749668ca3612a84"
+                "351db908d9f73185",
+                "53c61cc44918df5e"
             ]
         ]
     },
     {
-        "id": "21442174f6fe8c3d",
+        "id": "23a32e7d88ec712b",
         "type": "api-current-state",
-        "z": "2f1e41c5.19c21e",
+        "z": "cbbecd18792563f3",
         "name": "Humidity",
         "server": "d6a6341e2582fde3",
         "version": 3,
@@ -154,14 +154,14 @@
         "y": 140,
         "wires": [
             [
-                "f3c461ec80901360"
+                "71faa29da4983ae5"
             ]
         ]
     },
     {
-        "id": "f3c461ec80901360",
+        "id": "71faa29da4983ae5",
         "type": "change",
-        "z": "2f1e41c5.19c21e",
+        "z": "cbbecd18792563f3",
         "name": "",
         "rules": [
             {
@@ -181,14 +181,14 @@
         "y": 200,
         "wires": [
             [
-                "85117c35c8e67013"
+                "9b5feb94338f6462"
             ]
         ]
     },
     {
-        "id": "1749668ca3612a84",
+        "id": "53c61cc44918df5e",
         "type": "debug",
-        "z": "2f1e41c5.19c21e",
+        "z": "cbbecd18792563f3",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -203,9 +203,9 @@
         "wires": []
     },
     {
-        "id": "3d9febdd4ef1b5bd",
+        "id": "9b1a056d20837c9b",
         "type": "websocket in",
-        "z": "2f1e41c5.19c21e",
+        "z": "cbbecd18792563f3",
         "name": "Get intent from Rhasspy",
         "server": "be92d86017b04a70",
         "client": "",
@@ -213,14 +213,14 @@
         "y": 40,
         "wires": [
             [
-                "5c65b64ab66b8cd7"
+                "4b8b3f752bec100c"
             ]
         ]
     },
     {
-        "id": "5c65b64ab66b8cd7",
+        "id": "4b8b3f752bec100c",
         "type": "switch",
-        "z": "2f1e41c5.19c21e",
+        "z": "cbbecd18792563f3",
         "name": "Which intent?",
         "property": "intent.name",
         "propertyType": "msg",
@@ -243,8 +243,8 @@
         "y": 120,
         "wires": [
             [
-                "5b2489ca5e05de89",
-                "21442174f6fe8c3d"
+                "f2948fd21f5d1106",
+                "23a32e7d88ec712b"
             ],
             []
         ]
