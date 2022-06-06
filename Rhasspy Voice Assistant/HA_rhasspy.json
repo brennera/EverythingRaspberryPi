@@ -1,0 +1,271 @@
+[
+    {
+        "id": "2f1e41c5.19c21e",
+        "type": "tab",
+        "label": "Rhasspy Example",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "1cf9bec4.4449d1",
+        "type": "http request",
+        "z": "2f1e41c5.19c21e",
+        "name": "text to speech",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://localhost:12101/api/text-to-speech",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "basic",
+        "senderr": false,
+        "x": 700,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5b2489ca5e05de89",
+        "type": "api-current-state",
+        "z": "2f1e41c5.19c21e",
+        "name": "Temperature",
+        "server": "d6a6341e2582fde3",
+        "version": 3,
+        "outputs": 1,
+        "halt_if": "",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "entity_id": "sensor.temperature_2",
+        "state_type": "str",
+        "blockInputOverrides": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            }
+        ],
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
+        "override_topic": false,
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "x": 390,
+        "y": 40,
+        "wires": [
+            [
+                "94912489856087e8"
+            ]
+        ]
+    },
+    {
+        "id": "94912489856087e8",
+        "type": "change",
+        "z": "2f1e41c5.19c21e",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "\"temperature  \" & payload & \"  degrees Farenheit\"",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 400,
+        "y": 100,
+        "wires": [
+            [
+                "85117c35c8e67013"
+            ]
+        ]
+    },
+    {
+        "id": "85117c35c8e67013",
+        "type": "join",
+        "z": "2f1e41c5.19c21e",
+        "name": "",
+        "mode": "custom",
+        "build": "string",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\"   \"",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "2",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "num",
+        "reduceFixup": "",
+        "x": 550,
+        "y": 120,
+        "wires": [
+            [
+                "1cf9bec4.4449d1",
+                "1749668ca3612a84"
+            ]
+        ]
+    },
+    {
+        "id": "21442174f6fe8c3d",
+        "type": "api-current-state",
+        "z": "2f1e41c5.19c21e",
+        "name": "Humidity",
+        "server": "d6a6341e2582fde3",
+        "version": 3,
+        "outputs": 1,
+        "halt_if": "",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "entity_id": "sensor.humidity",
+        "state_type": "str",
+        "blockInputOverrides": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            }
+        ],
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
+        "override_topic": false,
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "x": 380,
+        "y": 140,
+        "wires": [
+            [
+                "f3c461ec80901360"
+            ]
+        ]
+    },
+    {
+        "id": "f3c461ec80901360",
+        "type": "change",
+        "z": "2f1e41c5.19c21e",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "\"humidity \" & payload & \"  percent\"",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 400,
+        "y": 200,
+        "wires": [
+            [
+                "85117c35c8e67013"
+            ]
+        ]
+    },
+    {
+        "id": "1749668ca3612a84",
+        "type": "debug",
+        "z": "2f1e41c5.19c21e",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 690,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "3d9febdd4ef1b5bd",
+        "type": "websocket in",
+        "z": "2f1e41c5.19c21e",
+        "name": "Get intent from Rhasspy",
+        "server": "be92d86017b04a70",
+        "client": "",
+        "x": 130,
+        "y": 40,
+        "wires": [
+            [
+                "5c65b64ab66b8cd7"
+            ]
+        ]
+    },
+    {
+        "id": "5c65b64ab66b8cd7",
+        "type": "switch",
+        "z": "2f1e41c5.19c21e",
+        "name": "Which intent?",
+        "property": "intent.name",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "HA_Temperature",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "GetTime",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 160,
+        "y": 120,
+        "wires": [
+            [
+                "5b2489ca5e05de89",
+                "21442174f6fe8c3d"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "d6a6341e2582fde3",
+        "type": "server",
+        "name": "Everything Pi Home Assistant",
+        "version": 2,
+        "addon": false,
+        "rejectUnauthorizedCerts": true,
+        "ha_boolean": "y|yes|true|on|home|open",
+        "connectionDelay": true,
+        "cacheJson": true,
+        "heartbeat": false,
+        "heartbeatInterval": "30"
+    },
+    {
+        "id": "be92d86017b04a70",
+        "type": "websocket-listener",
+        "path": "ws://localhost:12101/api/events/intent",
+        "wholemsg": "true"
+    }
+]
