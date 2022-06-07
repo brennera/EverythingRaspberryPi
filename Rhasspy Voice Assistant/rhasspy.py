@@ -51,12 +51,14 @@ def on_message(client, userdata, msg):
         offvalue='"value": "off"'
         if offvalue in payload:
             print("off")
-            command='curl "http://192.168.1.129/cm?cmnd=Power%20OFF"' #tasmota IP address
+            #*************change 192.168.1.xxx to correct tasmota IP address
+            command='curl "http://192.168.1.xxx/cm?cmnd=Power%20OFF"' #tasmota IP address
             os.system(command)
             
         elif onvalue in payload:
             print("on")
-            command='curl "http://192.168.1.129/cm?cmnd=Power%20ON"' #tasmota IP address
+            command='curl "http://192.168.1.xxx/cm?cmnd=Power%20ON"' #tasmota IP address
+            #****************************************************************************
             os.system(command)
                 
     elif "TakePicture" in payload:
